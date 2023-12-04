@@ -109,65 +109,6 @@ public class QuickSortMethod : MonoBehaviour
             year = _year;
         }
 
-        /*
-        public void extractMax() // remove largest element and heapify
-            // (does not update size since it is only used once the heap's capacity is max)
-        {
-            int rootPos = 0;
-
-            Assign(ref distances[rootPos], distances[size - 1]); // set first element equal to last element
-            distances[size - 1].distance = 0; // set last element distance to 0
-
-            while (true)
-            {
-                if (2 * rootPos + 1 < size - 1) // if first child exists
-                {
-                    int tempPos = 0;
-                    if (2 * rootPos + 2 < size - 1) // if second child exists
-                    {
-                        tempPos = (distances[2 * rootPos + 1].distance > distances[2 * rootPos + 2].distance) ?
-                            2 * rootPos + 1 : 2 * rootPos + 2;  // set tempPos to position of greater child;
-                    }
-                    else
-                    {
-                        tempPos = 2 * rootPos + 1; // set tempPos equal to position of left child
-                    }
-
-                    Swap(ref distances[tempPos], ref distances[rootPos]); // swap parent with greater child
-
-                    rootPos = tempPos; // update rootPos
-                }
-                else // if no children
-                {
-                    break; // break loop
-                }
-            }
-        }
-        */
-        /*
-        public void insert(CancerIncidence d, int incidenceNumber)
-        { // insert will automatically remove largest element if capacity is full
-            double distance = Math.Sqrt(Math.Pow(source[0] - d.getLocationX(), 2) + Math.Pow(source[1] - d.getLocationY(), 2));
-            // ^ set distance from source to incidence
-
-            if (d.getYear() == year) // if year of incidence matches user specified year
-            {
-                if (size < capacity) // if heap is not full yet
-                {
-                    distances[size] = new Incidence(d, distance, incidenceNumber); // add new element
-                    size++; // increment size
-                    heapifyUp(); // heapify last element upwards
-                }
-                else if (distances[0].distance > distance) // if heap is full, then if the max distance in heap is larger than current distance
-                {
-                    extractMax(); // remove maximum element
-
-                    distances[size - 1] = new Incidence(d, distance, incidenceNumber); // insert new element into last position
-                    heapifyUp(); // heapify the last element upwards
-                }
-            }
-        }
-        */
         public void quickSort(ref Incidence[] distances, int low, int high) {
             if (low < high) {
                 double pivot = distances[high].distance;
@@ -207,22 +148,6 @@ public class QuickSortMethod : MonoBehaviour
             }
         }
 
-
-        /*
-        public void heapifyUp() // used in insert function
-        {
-            int tempPos = size - 1; // set tempPos to last element
-            int parentPos = (tempPos - 1) / 2; // set parentPos to parent of tempPos
-
-            while (tempPos > 0 && distances[tempPos].distance > distances[parentPos].distance)
-            { // while tempPos is not root and distance at tempPos is greater than distance at parentPos
-                Swap(ref distances[tempPos], ref distances[parentPos]); // swap incidences (Swap explained later)
-
-                tempPos = parentPos; // set tempPos equal to parentPos
-                parentPos = (parentPos - 1) / 2; // set parentPos = parent element
-            }
-        }
-        */
         public void Swap(ref Incidence a, ref Incidence b) // swaps two Incidence object values
         {
             double ADistance = a.distance;
