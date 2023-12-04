@@ -47,8 +47,8 @@ public class Manager : MonoBehaviour
         year = 0; // user specified year
         coordFormat = new Regex("^(\\-?\\d+(\\.\\d+)?)$"); // regex to accept only coordinate format
         // ^^ regex format found here: https://stackoverflow.com/questions/10686524/regex-for-latitude-longitude-pairs
-        resultsFormat = new Regex("^([1-9]|[1-9][0-9]{1,3}|10000)$"); // regex to accept numbers from 1-10000
-        yearFormat = new Regex("^(1999|200[0-9]|201[0-2])$"); // regex to accept numbers from 1900-2100
+        resultsFormat = new Regex("^([1-9]|[1-9][0-9]{1,2}|1[01][0-9]{2}|12[0-4][0-9]|1250)$"); // regex to accept numbers from 1-1250
+        yearFormat = new Regex("^(1999|200[0-9]|201[0-2])$"); // regex to accept numbers from 1999-2011
 
         heapOrQuick = true; // determines whether heap or quick sort is used
 
