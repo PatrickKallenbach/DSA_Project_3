@@ -135,14 +135,23 @@ public class QuickSortMethod : MonoBehaviour
                 if (size < capacity)
                 {
                     distances[size++] = new Incidence(element, distance, incidenceNumber);
-                    quickSort(ref distances, 0, size - 1);
+                    if (size != 1)
+                    {
+                        if (distances[size - 1].distance < distances[size - 2].distance)
+                        {
+                            quickSort(ref distances, 0, size - 1);
+                        }
+                    }
                 }
                 else
                 {
                     if (distance < distances[capacity - 1].distance)
                     {
                         distances[capacity - 1] = new Incidence(element, distance, incidenceNumber);
-                        quickSort(ref distances, 0, size - 1);
+                        if (distances[size - 1].distance < distances[size - 2].distance)
+                        {
+                            quickSort(ref distances, 0, size - 1);
+                        }
                     }
                 }
             }
